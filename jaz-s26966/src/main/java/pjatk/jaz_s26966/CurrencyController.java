@@ -16,7 +16,7 @@ public class CurrencyController {
     }
 
     @GetMapping("currency")
-    public ResponseEntity<Double> getCurrency() {
+    public ResponseEntity<Request> getCurrency() {
         return ResponseEntity.ok(currencyService.getCurrency());
     }
 }

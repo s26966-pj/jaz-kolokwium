@@ -1,11 +1,12 @@
 package pjatk.jaz_s26966;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Rate {
     private String no;
-    private Date effectiveDate;
-    private Double mid;
+    private LocalDate effectiveDate;
+    private Float mid;
 
     public Rate() {
 
@@ -19,19 +20,19 @@ public class Rate {
         this.no = no;
     }
 
-    public Date getEffectiveDate() {
+    public LocalDate getEffectiveDate() {
         return effectiveDate;
     }
 
-    public void setEffectiveDate(Date effectiveDate) {
+    public void setEffectiveDate(LocalDate effectiveDate) {
         this.effectiveDate = effectiveDate;
     }
 
-    public Double getMid() {
+    public Float getMid() {
         return mid;
     }
 
-    public void setMid(Double mid) {
+    public void setMid(Float mid) {
         this.mid = mid;
     }
 }

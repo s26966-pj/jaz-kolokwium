@@ -14,14 +14,19 @@ public class Request {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     private String code;
-
     private LocalDate start;
-
     private LocalDate end;
     private Float value;
     private LocalDate date;
+
+    public Request(String code, LocalDate start, LocalDate end, Float value, LocalDate date) {
+        this.code = code;
+        this.start = start;
+        this.end = end;
+        this.value = value;
+        this.date = date;
+    }
 
     public Request() {
 
