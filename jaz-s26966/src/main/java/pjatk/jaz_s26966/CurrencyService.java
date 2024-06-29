@@ -15,15 +15,15 @@ public class CurrencyService {
         this.currencyRepository = currencyRepository;
     }
 
-    public Request getCurrency() {
-        Currency currency = restTemplate.getForObject("http://api.nbp.pl/api/exchangerates/rates/a/gbp/2012-01-02/2013-01-02/", Currency.class);
+    public Request getCurrency(String code, LocalDate start, LocalDate end) {
+        Currency currency = restTemplate.getForObject("http://api.nbp.pl/api/exchangerates/rates/a/"+code+"/" +start+"/"+end, Currency.class);
         List<Rate> rates = currency.getRates();
         Float value = 0f;
         for (Rate rate : rates) {
             value += rate.getMid();
         }
         value = value/rates.size();
-        Request request = new Request(currency.getCode(), LocalDate.now(), LocalDate.now(), value, LocalDate.now());
+        Request request = new Request(code, start, end, value, LocalDate.now());
         currencyRepository.save(request);
         return request;
     }
