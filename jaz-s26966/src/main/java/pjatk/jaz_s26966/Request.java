@@ -1,5 +1,6 @@
 package pjatk.jaz_s26966;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,13 +12,22 @@ import java.util.Date;
 
 @Entity
 public class Request {
+    @Schema(description = "Id zapytania")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Schema(description = "Kod waluty")
+
     private String code;
+    @Schema(description = "Początek zakresu daty")
+
     private LocalDate start;
+    @Schema(description = "Konuec zakresu daty")
     private LocalDate end;
+
+    @Schema(description = "Średni kurs waluty w zakresie dat")
     private Float value;
+    @Schema(description = "Data wykonania zapytania")
     private LocalDate date;
 
     public Request(String code, LocalDate start, LocalDate end, Float value, LocalDate date) {

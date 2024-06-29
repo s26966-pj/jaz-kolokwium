@@ -1,5 +1,6 @@
 package pjatk.jaz_s26966;
 
+import io.swagger.v3.oas.annotations.Operation;
 import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ public class CurrencyController {
         this.currencyService = currencyService;
     }
 
+    @Operation(summary = "Zwraca średni kurs wybranej waluty w podanym zakresie")
     @GetMapping("currency/{code}/{start}/{end}")
     public ResponseEntity<Request> getCurrency(@PathVariable String code, @PathVariable LocalDate start, @PathVariable LocalDate end) {
         return ResponseEntity.ok(currencyService.getCurrency(code, start, end));
