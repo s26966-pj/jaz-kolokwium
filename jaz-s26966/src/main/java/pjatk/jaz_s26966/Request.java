@@ -8,6 +8,7 @@ import jakarta.persistence.Id;
 import org.springframework.cglib.core.Local;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -28,9 +29,9 @@ public class Request {
     @Schema(description = "Średni kurs waluty w zakresie dat")
     private Float value;
     @Schema(description = "Data wykonania zapytania")
-    private LocalDate date;
+    private LocalDateTime date;
 
-    public Request(String code, LocalDate start, LocalDate end, Float value, LocalDate date) {
+    public Request(String code, LocalDate start, LocalDate end, Float value, LocalDateTime date) {
         this.code = code;
         this.start = start;
         this.end = end;
@@ -82,11 +83,11 @@ public class Request {
         this.value = value;
     }
 
-    public LocalDate getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 }

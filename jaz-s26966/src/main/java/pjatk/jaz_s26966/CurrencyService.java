@@ -1,9 +1,12 @@
 package pjatk.jaz_s26966;
 
+import org.hibernate.type.descriptor.jdbc.DateJdbcType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.sql.Date;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -22,8 +25,7 @@ public class CurrencyService {
         for (Rate rate : rates) {
             value += rate.getMid();
         }
-        value = value/rates.size();
-        Request request = new Request(code, start, end, value, LocalDate.now());
+        Request request = new Request(code, start, end, value/ rates.size(), LocalDateTime.now());
         currencyRepository.save(request);
         return request;
     }
